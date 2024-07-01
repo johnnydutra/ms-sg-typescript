@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
+import { Markable } from './CustomMap';
 
-export class User {
+export class User implements Markable {
   name: string;
   location: {
     lat: number;
@@ -14,4 +15,10 @@ export class User {
       lng: faker.location.longitude(),
     };
   }
+
+  markerContent(): string {
+    return `User name: ${this.name}`;
+  }
+
+  markerColor: 'red';
 }
